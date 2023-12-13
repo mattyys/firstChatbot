@@ -1,0 +1,43 @@
+.app-container{
+    display: flex;
+    justify-content:flex-end;
+    background-color: aqua;
+    height: 100vh;
+    width: 100vw;   
+    align-items:flex-end; 
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .chatbot-container{
+    display: none;
+    transform: scale(0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    
+  }
+  .chatbot-container-show::after{
+    transform: scale(1);
+    
+    opacity: 1;
+    transition: all 250ms ease-in-out;
+  }
+ 
+  .chaticon{
+    font-size: 3rem;
+    color: var(--primary-color);
+    transition: transform 0.5s ease, opacity 1s ease;
+  }
+
+ .chaticon:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 250ms ease-in-out;
+ }
+ .chaticon:active{
+    cursor: pointer;
+    transform: scale(0.98);
+    transition: all 250ms ease-in-out;
+    transform: translateX(-50px);
+ }
+
+  
