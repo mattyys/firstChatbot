@@ -12,10 +12,6 @@ const config = {
   botName:namebot,
   widgets:[
     {
-      widgetName: "UserLog",
-      widgetFunc: (props) => <UserLog {...props}/>
-    },
-    {
       widgetName: "LoanQuiz",
       widgetFunc: (props) => <LoanQuiz {...props} />,
     },

@@ -3,12 +3,19 @@
 :root {
   /*colors*/
   --primary-color: #6b49ff;
+  --secondary-color: #8bb5f5;
+  --just-white:#ffffff;
+  --just-black:#000000;
+  --body-bg-color-light:#dadaf6f6;
 }  
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
+html, body {
   font-family: 'Roboto', sans-serif;
 };
+body{
+  color:var(--body-bg-color);
+}

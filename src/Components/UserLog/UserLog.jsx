@@ -1,7 +1,10 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { useForm } from "react-hook-form";
+import { UserContext } from '../../Context/UserContext';
 
 export const UserLog = () => {
+
+    const {addUser} = useContext(UserContext);
 
     const {register, handleSubmit, formState:{ errors}} = useForm();
 
@@ -11,7 +14,7 @@ export const UserLog = () => {
 
     const onSubmit = (dataForm) => {
         const userData = {...dataForm};
-
+        addUser(userData);
     };
 
   return (

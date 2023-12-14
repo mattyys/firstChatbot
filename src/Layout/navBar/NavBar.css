@@ -1,0 +1,24 @@
+.navBar-container{
+    width: 100%;
+    background-color: var(--just-white);
+    padding: 12px 20px;
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+    box-shadow: 2px 2px 19px -12px rgba(0,0,0,0.52) ;
+}
+
+.user-icon{
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.user-container{
+    display: flex;
+    align-items: last baseline;
+    gap: 1rem;
+}
