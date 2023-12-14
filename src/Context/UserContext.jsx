@@ -1,4 +1,4 @@
-import  { createContext, useState } from "react";
+import  { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
@@ -7,7 +7,7 @@ const UserProvider = ( { children } ) => {
     const [user, setUser] = useState([]);
     
     const addChat = (newDate, chats) => {
-        const currUser = [...user,{date:newDate,messages:chats}];
+        const currUser = [...user,{date:newDate,chats}];
         setUser(currUser);
     };
 
@@ -18,6 +18,10 @@ const UserProvider = ( { children } ) => {
     const deleteUser = () => {
        setUser([]);
     }; 
+
+    useEffect(() => {
+        
+    },[user]);
 
 
     return(

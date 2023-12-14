@@ -25,7 +25,7 @@ export const ChatbotLuncher = () => {
     };
 
     const checkUser = () => {
-      user != null ? setShowChat(!showChat) : onNavigate();
+      user == "" ? onNavigate() : setShowChat(!showChat);
     };
 
 
@@ -33,7 +33,7 @@ export const ChatbotLuncher = () => {
   return (   
     <div className='app-container'>
         
-        <div className="chaticon-container" onClick={ () => setShowChat(!showChat)}>
+        <div className="chaticon-container" onClick={ () => checkUser()}>
             <MdChatBubble className='chaticon'  />
         </div>
         

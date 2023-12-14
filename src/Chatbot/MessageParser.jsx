@@ -1,6 +1,8 @@
 import React from 'react';
 
 const MessageParser = ({ children, actions }) => {
+
+
     
   const parse = (message) => {
     const lowerCaseMsg = message.toLowerCase();

@@ -1,17 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import { UserContext } from '../Context/UserContext';
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
-    
-  const logginAction = () => {
-    const msg = createChatBotMessage('logged in selected',{
-      widget:""
-    });
-    addMsgToState(msg);
-  };
+  const {user} = useContext(UserContext);
+  
+ 
 
   const handleHello = () => {
-    const botMsg = createChatBotMessage('Hello, what can I do for you?')
+    const botMsg = createChatBotMessage(`Hello ${user.name}, what can I do for you?`)
     addMsgToState(botMsg);
   };
 
@@ -42,7 +39,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     addMsgToState(botMessage);
   };
 
-
+  const afterMessage = () => {
+    const message = createChatBotMessage("Sorry, I can't response that.");
+    addMsgToState(message);
+  };
   const addMsgToState = (message) =>{
     setState((prev) => (
       {
@@ -64,6 +64,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleGood,
             handleLoan,
             handleIWant,
+            afterMessage,
           },
         });
       })}

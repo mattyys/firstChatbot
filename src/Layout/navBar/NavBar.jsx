@@ -13,7 +13,7 @@ export const NavBar = () => {
         <nav className='navBar'>
           <div className="user-container">
                <FaUserLarge className='user-icon'/>
-               <h4>{user.length() > 0 ? user.name : "UserName"}</h4>
+               <h4>{ user == "" ? "user name" : user.name}</h4>
           </div>
         </nav>
     </header>

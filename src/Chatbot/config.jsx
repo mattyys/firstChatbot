@@ -1,6 +1,5 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
 import React from 'react';
-import { UserLog } from '../Components/UserLog/UserLog';
 import { LoanQuiz } from '../Components/LoanQuiz/LoanQuiz';
 import { ConfirmLoan } from '../Components/ConfirmLoan/ConfirmLoan';
 
