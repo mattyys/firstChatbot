@@ -9,6 +9,9 @@ const namebot = "ChatBob"
 const config = {
   initialMessages: [createChatBotMessage(`Hello, I'm your assistant ${namebot}`)],
   botName:namebot,
+  state:{
+    checker: null,
+  },
   widgets:[
     {
       widgetName: "LoanQuiz",

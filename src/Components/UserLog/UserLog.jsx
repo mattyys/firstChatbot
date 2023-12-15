@@ -20,7 +20,7 @@ export const UserLog = () => {
         const userData = {...dataForm};
         console.table(userData);
         initialUser(userData);
-        createDocument(userData,'users');
+        //createDocument(userData,'users');
         navigate("/");
         
     };

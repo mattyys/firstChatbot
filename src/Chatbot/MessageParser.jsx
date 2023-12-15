@@ -5,7 +5,7 @@ import { UserContext } from '../Context/UserContext';
 
 const MessageParser = ({ children, actions }) => {
   const {user} = useContext(UserContext);
-
+  console.log(children);
     
   const parse = (message) => {
     const lowerCaseMsg = message.toLowerCase();

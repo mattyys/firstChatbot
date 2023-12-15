@@ -44,7 +44,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
   const handleGoodBye = () => {
     const botMessage = createChatBotMessage('GoodBye, have a nice day');
     addMsgToState(botMessage);
-    const currDate = new Date(Date.now()).toLocaleString();
+    const currDate = new Date(Date.now());
     //addChat(currDate,messages);
     const uChats = JSON.stringify(messages)
     const userChats = {...user,date:currDate,uChats};
@@ -59,7 +59,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
     const message = createChatBotMessage("Sorry, I can't response that.");
     addMsgToState(message);
   };
-  const addMsgToState = (message) =>{
+  const addMsgToState = (message, checker) =>{
     setState((prev) => (
       {
         ...prev,
@@ -67,7 +67,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
           [
             ...prev.messages,
             message
-          ]
+          ],checker
       }
     ))
   };
