@@ -5,10 +5,11 @@ export const UserContext = createContext();
 const UserProvider = ( { children } ) => {
 
     const [user, setUser] = useState([]);
-    
+    const [userChats, setUserChats] = useState([]);
+
     const addChat = (newDate, chats) => {
-        const currUser = [...user,{date:newDate,chats}];
-        setUser(currUser);
+        const currUserChat = {...user,date:newDate,chats};
+        setUserChats(currUserChat.toString());
     };
 
     const initialUser = (user) => {
@@ -31,6 +32,7 @@ const UserProvider = ( { children } ) => {
                 addChat,
                 initialUser,
                 deleteUser,
+                userChats
             }}
         >
             { children } 

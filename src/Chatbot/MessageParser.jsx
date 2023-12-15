@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { UserContext } from '../Context/UserContext';
+
+
 
 const MessageParser = ({ children, actions }) => {
-
+  const {user} = useContext(UserContext);
 
     
   const parse = (message) => {
@@ -26,6 +29,8 @@ const MessageParser = ({ children, actions }) => {
     if(lowerCaseMsg.includes('good')){
       if(lowerCaseMsg.includes('bye')){
         console.log('chau');
+        actions.handleGoodBye();
+        
       }else{
         actions.handleGood();
       }

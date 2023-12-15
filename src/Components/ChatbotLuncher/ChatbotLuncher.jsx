@@ -28,6 +28,14 @@ export const ChatbotLuncher = () => {
       user == "" ? onNavigate() : setShowChat(!showChat);
     };
 
+    const saveMessages = (messages,HTMLString) => {
+      localStorage.setItem("chat_messages", JSON.stringify(messages))
+    };
+    const loadMessages = () => {
+      const messages = JSON.parse(localStorage.getItem('chat_messages'));
+      return messages;
+    };
+
 
 
   return (   
@@ -38,11 +46,15 @@ export const ChatbotLuncher = () => {
         </div>
         
         <div className={showChat ? "chatbot-container-show" : "chatbot-container"}>
-            <Chatbot 
-                config={config}
-                actionProvider={ActionProvider}
-                messageParser={MessageParser}/>
-        </div>
+           {  showChat && <Chatbot 
+                            config={config}
+                            actionProvider={ActionProvider}
+                            messageParser={MessageParser}
+                            messageHistory={loadMessages}
+                      
+                          />
+           }
+          </div>
     </div>
   
   )

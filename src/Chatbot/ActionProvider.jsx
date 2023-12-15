@@ -1,11 +1,13 @@
 import React,{useContext} from 'react';
 import { UserContext } from '../Context/UserContext';
+import { createDocument } from '../Utils/firestore';
 
-const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
-  const {user} = useContext(UserContext);
+const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
+
+  const {user,addChat} = useContext(UserContext);
   
- 
+  const {messages} = state;
 
   const handleHello = () => {
     const botMsg = createChatBotMessage(`Hello ${user.name}, what can I do for you?`)
@@ -39,6 +41,20 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     addMsgToState(botMessage);
   };
 
+  const handleGoodBye = () => {
+    const botMessage = createChatBotMessage('GoodBye, have a nice day');
+    addMsgToState(botMessage);
+    const currDate = new Date(Date.now()).toLocaleString();
+    //addChat(currDate,messages);
+    const uChats = JSON.stringify(messages)
+    const userChats = {...user,date:currDate,uChats};
+    console.log(userChats);
+    setTimeout(() =>{
+      createDocument(userChats,'chats');
+    },4000);
+    
+  };
+
   const afterMessage = () => {
     const message = createChatBotMessage("Sorry, I can't response that.");
     addMsgToState(message);
@@ -65,6 +81,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleLoan,
             handleIWant,
             afterMessage,
+            handleGoodBye,
           },
         });
       })}

@@ -2,6 +2,7 @@ import React,{useContext} from 'react'
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../Context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { createDocument } from '../../Utils/firestore';
 
 export const UserLog = () => {
 
@@ -11,12 +12,15 @@ export const UserLog = () => {
     const {register, handleSubmit, formState:{ errors}} = useForm();
 
    
-
+    const onCancel = () => {
+        navigate("/");
+    };
     const onSubmit = (dataForm) => {
         
         const userData = {...dataForm};
         console.table(userData);
         initialUser(userData);
+        createDocument(userData,'users');
         navigate("/");
         
     };
@@ -66,6 +70,7 @@ export const UserLog = () => {
                 </div>
 
                 <div className="mb-3">
+                    <button className="btn btn-danger m-3" type="button" onClick={ onCancel}>Cancel</button>
                     <input className='btn btn-primary m-3'  type="submit" value="Loggin" />
                 </div>
             </form>
