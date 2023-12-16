@@ -3,7 +3,7 @@ import "./ConfirmLoan.css"
 
 export const ConfirmLoan = (props) => {
   
-  const handleLoans = () => {
+  const handleLoan = () => {
       
   };
 

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { getDocuments } from '../../Utils/firestore'
 import { RowItemChat } from '../../Components/RowItemChat/RowItemChat';
 import PulseLoader from "react-spinners/PulseLoader";
+import { ExportCSV } from '../../Components/ExportCSV/ExportCSV';
+
+
 
 
 
@@ -13,24 +16,24 @@ export const ChatHistory = () => {
         try{
             const data = await getDocuments('chats');
             const sortData = data.sort( (a,b) => {b.date - a.date});
+            console.log(sortData);
             setChatArray(sortData);
         }catch(e) {
             console.error(e);
         }
     };
     useEffect(() =>{
-            getChats();         
-    },[chatArray]);
+        getChats();         
+    },[]);
 
-    const getDate = (chat) =>{
-        const y = chat.date.getFullYear();
-        const m = chat.date.getMonth();
-        const d = chat.date.getDate();
-        const h = chat.date.getHours();
-        const min = chat.date.getMinutes();
-        return  d + "/"+ m + "/" + y + " " + h + ":" + min;
-
-    }
+    const dataChats = () => {
+        return chatArray.map((item)=>{
+            const chats = JSON.parse(item.uChats);
+            return [item.id, item.name,item.date,chats]
+        });
+        
+      };
+      console.log(dataChats());
 
 
   return (
@@ -45,10 +48,8 @@ export const ChatHistory = () => {
 
             <tbody>
                 {chatArray.length > 0 ?(
-                    chatArray.map((chat) => {
-                        console.log(date.date);
-                        //const date = getDate(chat);                       
-                        return <RowItemChat name={chat.name}  date={chat.id} key = {chat.id} />;
+                    chatArray.map((chat) => {                
+                        return <RowItemChat chat={chat} key = {chat.id} />;
                     })
                     ):(
                         <PulseLoader color="#6b49ff" />
@@ -56,6 +57,8 @@ export const ChatHistory = () => {
                 
             </tbody>
         </table>
+        <button className='btn btn-primary'>Export CSV</button>
+       
     </section>
   );
 };

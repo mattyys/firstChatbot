@@ -9,6 +9,11 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
   
   const {messages} = state;
 
+  const userLogin = () => {
+    const botMessage = createChatBotMessage('Hello, log in please, enter your Username')
+    user == "" && addChatMessage(botMessage);
+  };
+
   const handleHello = () => {
     const botMsg = createChatBotMessage(`Hello ${user.name}, what can I do for you?`)
     addMsgToState(botMsg);
@@ -44,14 +49,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
   const handleGoodBye = () => {
     const botMessage = createChatBotMessage('GoodBye, have a nice day');
     addMsgToState(botMessage);
-    const currDate = new Date(Date.now());
+    const currDate = new Date(Date.now()).toISOString();
     //addChat(currDate,messages);
     const uChats = JSON.stringify(messages)
     const userChats = {...user,date:currDate,uChats};
     console.log(userChats);
     setTimeout(() =>{
       createDocument(userChats,'chats');
-    },4000);
+    },1000);
     
   };
 

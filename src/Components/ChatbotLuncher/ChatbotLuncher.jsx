@@ -49,9 +49,7 @@ export const ChatbotLuncher = () => {
            {  showChat && <Chatbot 
                             config={config}
                             actionProvider={ActionProvider}
-                            messageParser={MessageParser}
-                            messageHistory={loadMessages}
-                      
+                            messageParser={MessageParser}                     
                           />
            }
           </div>

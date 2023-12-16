@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const RowItemChat = ({name, date}) => {
+export const RowItemChat = ({chat}) => {
   return (
         <tr>      
-            <td>{name}</td>
-            <td>{date}</td>
+            <td>{chat.name}</td>
+            <td>{chat.date}</td>
         </tr>
   )
 }
