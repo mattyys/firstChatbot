@@ -1,5 +1,7 @@
 # Chat Bot
 
+![1702852915840](image/README/1702852915840.png)
+
 ## Descripcion
 
 Se trata de un chatbot que tiene como funcionalidad reconcer palabras como "Hello", "i want", "good", "goodbye" y dar alguna respuesta a cambio.
