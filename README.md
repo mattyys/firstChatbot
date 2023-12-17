@@ -43,6 +43,6 @@ npm run dev
 
 ## Observaciones:
 
-Este proyecto es una consigna para aplicar a una empresa, no habia tenido la oportunidad de trabajar con la logica de un chatbot, es un desafio bastante importante para mi, el cual todavia no lo termine pero vo a estar trabajando en ello.
+Este proyecto es una consigna para aplicar a una empresa, no habia tenido la oportunidad de trabajar con la logica de un chatbot, es un desafio bastante importante para mi, el cual todavia no lo termine pero voy a estar trabajando en ello.
 
 Agradezco feedbacks.
