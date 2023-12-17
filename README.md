@@ -6,7 +6,7 @@ Se trata de un chatbot que tiene como funcionalidad reconcer palabras como "Hell
 
 Si el usuario digita la palabra "loan", el cat bot muestra 3 links con contenido especifico.
 
-Otra funcionalidad es poder lguearse para iniciar el chat, mostrar un listado de usuarios  chats ordenados por fecha y poder exportarlo a CSV.
+Otra funcionalidad es poder lguearse(ficticio-guarda usuario y contraña juanto con los chats)para iniciar el chat, mostrar un listado de usuarios  chats ordenados por fecha y poder exportarlo a CSV.
 
 Se utiliza Firestore para la base de datos, que guarda la informacion de los usuarios, fecha  ra de la finalizacion del cat  los chats
 
