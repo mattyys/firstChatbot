@@ -3,6 +3,7 @@ import { getDocuments } from '../../Utils/firestore'
 import { RowItemChat } from '../../Components/RowItemChat/RowItemChat';
 import PulseLoader from "react-spinners/PulseLoader";
 import { ExportCSV } from '../../Components/ExportCSV/ExportCSV';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -11,6 +12,7 @@ import { ExportCSV } from '../../Components/ExportCSV/ExportCSV';
 export const ChatHistory = () => {
 
     const [chatArray, setChatArray] = useState([]);
+    const navigate = useNavigate();
 
     const getChats = async () => {
         try{
@@ -33,7 +35,11 @@ export const ChatHistory = () => {
         });
         
       };
-      console.log(dataChats());
+    console.log(dataChats());
+
+    const onCancel = () => {
+        navigate("/");
+    };
 
 
   return (
@@ -57,6 +63,7 @@ export const ChatHistory = () => {
                 
             </tbody>
         </table>
+        <button className="btn btn-danger m-3" type="button" onClick={ onCancel}>Cancel</button>
         <button className='btn btn-primary'>Export CSV</button>
        
     </section>
