@@ -7,7 +7,7 @@ export const ExportCSV = ({data, filname}) => {
 
   return (
     <CSVLink data={data} filname={filname}>
-        Exportar a CSV
+        <button className='btn btn-success m-2'>Exportar a CSV</button>
     </CSVLink>
   )
 }

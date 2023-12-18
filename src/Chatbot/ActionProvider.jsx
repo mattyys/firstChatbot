@@ -49,16 +49,17 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
   const handleGoodBye = () => {
     const botMessage = createChatBotMessage('GoodBye, have a nice day');
     addMsgToState(botMessage);
+  };
+
+  const addChatdb = () =>{
     const currDate = new Date(Date.now()).toISOString();
     //addChat(currDate,messages);
     const uChats = JSON.stringify(messages)
     const userChats = {...user,date:currDate,uChats};
-    console.log(userChats);
     setTimeout(() =>{
       createDocument(userChats,'chats');
-    },1000);
-    
-  };
+    },2000);
+  }
 
   const afterMessage = () => {
     const message = createChatBotMessage("Sorry, I can't response that.");
@@ -87,6 +88,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children,state }) => {
             handleIWant,
             afterMessage,
             handleGoodBye,
+            addChatdb
           },
         });
       })}

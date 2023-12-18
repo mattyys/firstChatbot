@@ -30,7 +30,7 @@ const MessageParser = ({ children, actions }) => {
       if(lowerCaseMsg.includes('bye')){
         console.log('chau');
         actions.handleGoodBye();
-        
+        actions.addChatdb();
       }else{
         actions.handleGood();
       }
